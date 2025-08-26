@@ -1,0 +1,29 @@
+## Summary
+This PR introduces a new **login approval workflow** for Welo Guard, requiring multi-step verification before granting access to sensitive areas.
+
+## Changes
+- Added `approval_workflow.py` module in `src/auth/`
+- Implemented `ApprovalManager` class to handle multi-step approvals
+- Updated `welo_guard.py` to integrate approval checks in `approve_login()`
+- Added new unit tests in `tests/test_approval.py`
+- Updated documentation in `docs/architecture.md` to reflect workflow changes
+
+## Motivation
+This feature strengthens login security by requiring explicit approval from a second team member (e.g., Security or DevOps) before login is finalized.
+
+## Screenshots
+*(optional: paste screenshots or code snippets here if relevant)*
+
+## Testing
+- ✅ Unit tests passing (`pytest`)
+- ✅ Manual tests completed on local environment
+- ⬜ Pending integration test with Welo Guard Dashboard
+
+## Related Issues
+- Closes #7 ("Add team approval workflows")
+- Relates to #3 ("Create role-based access controls")
+
+## Reviewer Checklist
+- [ ] Code follows repo style guidelines
+- [ ] Adequate tests added
+- [ ] Documentation updated
