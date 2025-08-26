@@ -1,0 +1,18 @@
+welo-guard/
+├── README.md
+├── docs/
+│   ├── overview.md
+│   ├── architecture.md
+│   ├── api_reference.md
+├── src/
+│   ├── welo_guard.py
+│   ├── auth/
+│   │   └── login.py
+│   └── monitor/
+│       └── activity_tracker.py
+├── examples/
+│   └── sample_usage.py
+├── tests/
+│   └── test_login.py
+└── config/
+    └── settings.json
