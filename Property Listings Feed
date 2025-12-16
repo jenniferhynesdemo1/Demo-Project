@@ -1,0 +1,44 @@
+[
+  {
+    "id": "listing_882",
+    "address": "1402 Greenbelt Drive",
+    "city": "Austin",
+    "state": "TX",
+    "zip": "78704",
+    "price": 4250000,
+    "specs": {
+      "beds": 5,
+      "baths": 4.5,
+      "sqft": 4800
+    },
+    "features": ["LEED Platinum", "Solar Array", "Tesla Powerwall", "Rainwater Collection"],
+    "agentId": "agent_sarah_j",
+    "status": "Active",
+    "coordinates": {
+      "lat": 30.2672,
+      "lng": -97.7431
+    },
+    "image": "/images/listings/greenbelt-hero.jpg"
+  },
+  {
+    "id": "listing_901",
+    "address": "2901 Pacific Coast Hwy",
+    "city": "Malibu",
+    "state": "CA",
+    "zip": "90265",
+    "price": 12500000,
+    "specs": {
+      "beds": 6,
+      "baths": 7,
+      "sqft": 7200
+    },
+    "features": ["Oceanfront", "Geothermal Heating", "Smart Glass", "Private Beach Access"],
+    "agentId": "agent_marcus_t",
+    "status": "Coming Soon",
+    "coordinates": {
+      "lat": 34.0259,
+      "lng": -118.7798
+    },
+    "image": "/images/listings/malibu-estate.jpg"
+  }
+]
