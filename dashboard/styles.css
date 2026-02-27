@@ -1,23 +1,23 @@
 /* Acme Corp System Status Dashboard Styles
    Following Acme Corp Brand Guidelines:
    - Typography: Lato
-   - Primary Color: Aubergine (#4A154B)
-   - Status Colors: Green (operational), Yellow (degraded), Red (outage), Blue (maintenance)
+   - Primary Color: Navy Blue (#1E3A5F)
+   - Status Colors: Green (operational), Amber (degraded), Red (outage), Blue (maintenance)
    - Border Radius: 8px
    - Transitions: 150ms ease
 */
 
 :root {
     /* Brand Colors */
-    --color-aubergine: #4A154B;
-    --color-aubergine-dark: #3D1040;
-    --color-aubergine-light: #611f69;
+    --color-aubergine: #1E3A5F;
+    --color-aubergine-dark: #162D4A;
+    --color-aubergine-light: #2A4F7E;
 
     /* Status Colors */
-    --color-operational: #2EB67D;
-    --color-degraded: #ECB22E;
-    --color-outage: #E01E5A;
-    --color-maintenance: #36C5F0;
+    --color-operational: #10B981;
+    --color-degraded: #F59E0B;
+    --color-outage: #EF4444;
+    --color-maintenance: #3B82F6;
 
     /* Neutral Colors */
     --color-white: #FFFFFF;
@@ -173,7 +173,7 @@ body {
 
 /* Status Banner */
 .status-banner {
-    background: linear-gradient(135deg, var(--color-operational) 0%, #25a06b 100%);
+    background: linear-gradient(135deg, var(--color-operational) 0%, #059669 100%);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
@@ -181,15 +181,15 @@ body {
 }
 
 .status-banner.degraded {
-    background: linear-gradient(135deg, var(--color-degraded) 0%, #d9a429 100%);
+    background: linear-gradient(135deg, var(--color-degraded) 0%, #D97706 100%);
 }
 
 .status-banner.outage {
-    background: linear-gradient(135deg, var(--color-outage) 0%, #c4194f 100%);
+    background: linear-gradient(135deg, var(--color-outage) 0%, #DC2626 100%);
 }
 
 .status-banner.maintenance {
-    background: linear-gradient(135deg, var(--color-maintenance) 0%, #2eb4db 100%);
+    background: linear-gradient(135deg, var(--color-maintenance) 0%, #2563EB 100%);
 }
 
 .status-banner-content {
@@ -294,8 +294,8 @@ body {
 }
 
 .status-badge.degraded {
-    background-color: rgba(236, 178, 46, 0.1);
-    color: #b8890a;
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #B45309;
 }
 
 .status-badge.outage {
@@ -304,8 +304,8 @@ body {
 }
 
 .status-badge.maintenance {
-    background-color: rgba(54, 197, 240, 0.1);
-    color: #1a9dc2;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #1D4ED8;
 }
 
 .status-dot {
