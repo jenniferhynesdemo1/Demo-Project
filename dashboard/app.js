@@ -6,6 +6,14 @@
 // Service Data - In production, this would come from Datadog/PagerDuty APIs
 const servicesData = [
     {
+        id: 'customer-portal',
+        name: 'Customer Portal',
+        status: 'outage',
+        uptime: 99.85,
+        responseTime: 0,
+        uptimeHistory: generateUptimeHistory(90, 0.995)
+    },
+    {
         id: 'payment-gateway',
         name: 'Payment Gateway',
         status: 'operational',
@@ -24,7 +32,7 @@ const servicesData = [
     {
         id: 'data-sync',
         name: 'Data Sync',
-        status: 'degraded',
+        status: 'operational',
         uptime: 99.91,
         responseTime: 342,
         uptimeHistory: generateUptimeHistory(90, 0.995)
@@ -51,23 +59,23 @@ const servicesData = [
 const activeIncidents = [
     {
         id: 'inc-001',
-        title: 'Data Sync Service Degraded Performance',
-        status: 'degraded',
-        affectedServices: ['Data Sync'],
-        startTime: new Date(Date.now() - 45 * 60 * 1000), // 45 minutes ago
-        description: 'We are investigating increased latency in the Data Sync service. Some users may experience slower sync operations.',
+        title: 'Customer Portal Outage - 404 Errors',
+        status: 'outage',
+        affectedServices: ['Customer Portal'],
+        startTime: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
+        description: 'The customer portal is currently DOWN and returning 404 errors to all users. Users are unable to log in or complete transactions. This is a Sev-1 incident affecting 500-1,000 accounts.',
         updates: [
             {
                 time: new Date(Date.now() - 5 * 60 * 1000),
-                text: 'Our engineers have identified the root cause and are implementing a fix.'
+                text: 'Engineering team is actively investigating the root cause of the 404 errors.'
             },
             {
-                time: new Date(Date.now() - 20 * 60 * 1000),
-                text: 'We have identified elevated response times in the Data Sync service.'
+                time: new Date(Date.now() - 15 * 60 * 1000),
+                text: 'Incident escalated to Sev-1. All users are affected and unable to access the portal.'
             },
             {
-                time: new Date(Date.now() - 45 * 60 * 1000),
-                text: 'Investigating reports of slow sync operations.'
+                time: new Date(Date.now() - 30 * 60 * 1000),
+                text: 'Initial reports received of customers experiencing 404 errors on the portal.'
             }
         ]
     }
