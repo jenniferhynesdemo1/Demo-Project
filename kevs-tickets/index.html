@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kev's Tickets</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kev's Tickets</h1>
+            <p class="subtitle">Lightweight Ticket Management</p>
+        </header>
+
+        <div class="controls">
+            <button id="newTicketBtn" class="btn btn-primary">+ New Ticket</button>
+            <div class="filters">
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="open">Open</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="resolved">Resolved</option>
+                    <option value="closed">Closed</option>
+                </select>
+                <select id="priorityFilter">
+                    <option value="all">All Priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-number" id="totalCount">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-card open">
+                <span class="stat-number" id="openCount">0</span>
+                <span class="stat-label">Open</span>
+            </div>
+            <div class="stat-card in-progress">
+                <span class="stat-number" id="inProgressCount">0</span>
+                <span class="stat-label">In Progress</span>
+            </div>
+            <div class="stat-card resolved">
+                <span class="stat-number" id="resolvedCount">0</span>
+                <span class="stat-label">Resolved</span>
+            </div>
+        </div>
+
+        <div class="tickets-container" id="ticketsContainer">
+            <p class="empty-state">No tickets yet. Create one to get started!</p>
+        </div>
+    </div>
+
+    <!-- Modal for creating/editing tickets -->
+    <div id="ticketModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">New Ticket</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="ticketForm">
+                <input type="hidden" id="ticketId">
+                <div class="form-group">
+                    <label for="ticketTitle">Title *</label>
+                    <input type="text" id="ticketTitle" required placeholder="Brief description of the issue">
+                </div>
+                <div class="form-group">
+                    <label for="ticketDescription">Description</label>
+                    <textarea id="ticketDescription" rows="4" placeholder="Detailed description..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ticketStatus">Status</label>
+                        <select id="ticketStatus">
+                            <option value="open">Open</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketPriority">Priority</label>
+                        <select id="ticketPriority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ticketAssignee">Assignee</label>
+                    <input type="text" id="ticketAssignee" placeholder="Who is responsible?">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Ticket Modal -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="viewTitle">Ticket Details</h2>
+                <button class="close-btn" id="closeViewModal">&times;</button>
+            </div>
+            <div id="viewContent" class="view-content"></div>
+            <div class="form-actions">
+                <button class="btn btn-danger" id="deleteTicketBtn">Delete</button>
+                <button class="btn btn-primary" id="editTicketBtn">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
