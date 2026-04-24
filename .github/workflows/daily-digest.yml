@@ -1,0 +1,31 @@
+name: Daily AI News Digest
+
+on:
+  schedule:
+    # 8am ET — 13:00 UTC covers EST (UTC-5). During EDT (UTC-4) this fires at 9am ET.
+    # Change to '0 12 * * 1-5' for summer if you want strict 8am year-round.
+    - cron: '0 13 * * 1-5'
+  workflow_dispatch: # also lets you trigger manually from the Actions tab
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  post-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate and post digest
+        run: python agent.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
