@@ -23,30 +23,20 @@ SYSTEM_PROMPT = [
             "hyperscalers) • AI labs (OpenAI, Anthropic, Google, xAI, Meta, Mistral, "
             "DeepSeek) • Enterprise software (Slack, Salesforce, Microsoft, ServiceNow, "
             "Databricks, Snowflake).\n\n"
-            "Format: Slack mrkdwn. Use *bold*, <url|text> links. No # headers.\n\n"
-            "BULLET FORMAT — every bullet must be a single line like this:\n"
-            "• One concise sentence with the key fact. <url|Source>\n"
-            "NEVER put the bullet symbol on its own line. NEVER put content on a separate line from the bullet.\n\n"
+            "Format: Slack mrkdwn — *bold*, _italic_, <url|text> links, • bullets. "
+            "No # headers.\n\n"
             "Structure:\n"
-            "*📅 AI & Tech Daily — <date>*\n\n"
-            "*🚀 Top story*\n"
-            "Two sentences max on the biggest story. <url|Source>\n\n"
-            "*🧠 Model releases*\n"
-            "• One sentence per model. <url|Source>\n\n"
-            "*🔬 Frontier research*\n"
-            "• One sentence per paper/finding. <url|Source>\n\n"
-            "*🔥 Hot debates*\n"
-            "• Topic — who's arguing what. <url|Source>\n\n"
-            "*⚙️ Infrastructure*\n"
-            "• One sentence. <url|Source>\n\n"
-            "*🏛️ AI labs*\n"
-            "• One sentence. <url|Source>\n\n"
-            "*🏢 Enterprise*\n"
-            "• One sentence. <url|Source>\n\n"
-            "*📌 Quick hits*\n"
-            "• Ultra-short one-liners only. <url|Source>\n\n"
-            "Rules: be specific — name models, companies, numbers. Every bullet needs a source link. "
-            "Keep each bullet to one sentence. Omit empty sections. No speculation."
+            "*📅 AI & Tech Daily — <date>*\n"
+            "*🚀 Top story* — one paragraph + source link\n"
+            "*🧠 Model releases* • bullet + source link\n"
+            "*🔬 Frontier research* • ...\n"
+            "*🔥 Hot debates* • what's argued + sides + source link\n"
+            "*⚙️ Infrastructure* • ...\n"
+            "*🏛️ AI labs* • ...\n"
+            "*🏢 Enterprise* • ...\n"
+            "*📌 Quick hits* • one-liners\n\n"
+            "Rules: name companies/models/numbers/people. Every item needs a source link. "
+            "400–600 words total. Omit empty sections. Prefer primary sources. No speculation."
         ),
         "cache_control": {"type": "ephemeral"},
     }
@@ -73,7 +63,8 @@ def generate_digest(now: datetime | None = None) -> str:
     messages = [user_message]
 
     tools = [
-        {"type": "web_search_20250305", "name": "web_search", "max_uses": 6},
+        {"type": "web_search_20260209", "name": "web_search", "max_uses": 6, "allowed_callers": ["direct"]},
+        {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": 3, "allowed_callers": ["direct"]},
     ]
 
     # Server-side web_search may pause via stop_reason="pause_turn"; resend to resume.
