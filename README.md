@@ -11,7 +11,7 @@ A Slack bot that posts a daily AI & tech news briefing to `#ai-news` at 8am and 
 - **AI labs** — OpenAI, Anthropic, Google, xAI, Meta, Mistral, DeepSeek
 - **Enterprise software** — Slack, Salesforce, Microsoft, ServiceNow, Databricks, Snowflake
 
-Under the hood: Claude Opus 4.7 with the `web_search` + `web_fetch` server-side tools. No separate news API needed.
+Under the hood: Claude Sonnet 4.6 with the `web_search` + `web_fetch` server-side tools. No separate news API needed.
 
 ## Setup
 
@@ -94,7 +94,7 @@ The bot connects over Socket Mode (no public URL needed), starts the scheduler, 
 
 ## Cost
 
-Each digest makes one call to Claude Opus 4.7 with web search/fetch. Expect a few cents per digest (search tool calls + input/output tokens). One scheduled post + occasional slash-command invocations is ~$1–3/month.
+Each digest makes one call to Claude Sonnet 4.6 with web search/fetch. Expect ~1–2 cents per digest (search tool calls + input/output tokens). One scheduled post + occasional slash-command invocations is well under $1/month.
 
 ## Deployment
 
