@@ -7,6 +7,9 @@ on:
     - cron: '0 13 * * 1-5'
   workflow_dispatch: # also lets you trigger manually from the Actions tab
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   post-digest:
     runs-on: ubuntu-latest
