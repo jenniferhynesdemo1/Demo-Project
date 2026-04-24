@@ -63,8 +63,8 @@ def generate_digest(now: datetime | None = None) -> str:
     messages = [user_message]
 
     tools = [
-        {"type": "web_search_20260209", "name": "web_search", "max_uses": 6},
-        {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": 3},
+        {"type": "web_search_20260209", "name": "web_search", "max_uses": 6, "allowed_callers": ["direct"]},
+        {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": 3, "allowed_callers": ["direct"]},
     ]
 
     # Server-side web_search may pause via stop_reason="pause_turn"; resend to resume.
